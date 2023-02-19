@@ -1,26 +1,14 @@
-pipeline {
-    agent any
+node {
+  stage("Clone the project") {
+    git branch: 'main', url: 'https://github.com/YounesElhakimi/microservice_chatGPT_API.git'
+  }
 
-    stages {
-        stage('Test') {
-            steps {
-                sh 'mvn clean test'
-            }
-        }
+  stage("Compilation") {
+    sh "./mvnw clean install -DskipTests"
+  }
 
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('Deploy in Docker') {
-            steps {
-                sh 'docker compose up'
-            }
-        }
+    stage("Tests") {
+      sh "./mvnw test -Punit"
     }
+   
 }
-
-
-

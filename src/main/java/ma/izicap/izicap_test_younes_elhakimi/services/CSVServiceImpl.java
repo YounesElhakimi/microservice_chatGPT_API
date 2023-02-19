@@ -34,15 +34,7 @@ public class CSVServiceImpl implements CSVService {
                 System.out.println("==================  create file ========================");
                 answersFile.createNewFile();
 
-                //FileWriter writer = new FileWriter(answersFile, true);
-
-                //writer.write("Question;answer\n");
-               // writer.close();
-                //
-                // create FileWriter object with file as parameter
-                FileWriter outputfile = new FileWriter(answersFile);
-
-                // create CSVWriter object filewriter object as parameter
+                FileWriter outputfile = new FileWriter(answersFile , true);
                 CSVWriter writer = new CSVWriter(outputfile);
 
                 // adding header to csv
@@ -53,15 +45,14 @@ public class CSVServiceImpl implements CSVService {
             }
 
             // create CSVWriter object filewriter object as parameter
-            FileWriter outputfile = new FileWriter(answersFile);
+            FileWriter outputfile = new FileWriter(answersFile, true);
 
             // create CSVWriter object filewriter object as parameter
             CSVWriter writer = new CSVWriter(outputfile);
 
             String[] data = {question.getQuestion(), question.getAnswer() };
             writer.writeNext(data);
-            //FileWriter writer = new FileWriter(answersFile, true);
-           // writer.write(question + ";" + answer + "\n");
+
             writer.close();
             return true;
         } catch (Exception e) {
@@ -87,6 +78,7 @@ public class CSVServiceImpl implements CSVService {
             // file reader as a parameter
             CSVReader csvReader = new CSVReader(filereader);
             String[] nextRecord;
+            csvReader.readNext();
             while ((nextRecord = csvReader.readNext()) != null) {
                 questionList.add(new Question(nextRecord[0],nextRecord[1]));
             }

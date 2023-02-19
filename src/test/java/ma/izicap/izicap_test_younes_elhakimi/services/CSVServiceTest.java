@@ -61,11 +61,11 @@ class CSVServiceTest {
 
         List<Question> questionList = this.csvService.getAllQuestionAndAnswerFromCSV();
 
-        assertTrue(questionList.get(1).getQuestion().equals(question1.getQuestion()));
-        assertTrue(questionList.get(1).getAnswer().equals(question1.getAnswer()));
+        assertTrue(questionList.get(0).getQuestion().equals(question1.getQuestion()));
+        assertTrue(questionList.get(0).getAnswer().equals(question1.getAnswer()));
 
-        assertTrue(questionList.get(2).getQuestion().equals(question2.getQuestion()));
-        assertTrue(questionList.get(2).getAnswer().equals(question2.getAnswer()));
+        assertTrue(questionList.get(1).getQuestion().equals(question2.getQuestion()));
+        assertTrue(questionList.get(1).getAnswer().equals(question2.getAnswer()));
 
 
         this.deleteTestFile();
