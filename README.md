@@ -1,7 +1,7 @@
 # Izicap Test 
 
 ## Prerequisites
-Before running the project, make sure you have the following software installed on your system:
+Before running the project, make sure you have the following software installed on your windows:
 * Git
 * Jenkins
 * Java 17
