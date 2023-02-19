@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  my-izicap_test_younes_elhakimi:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
