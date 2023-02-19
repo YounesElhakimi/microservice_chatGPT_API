@@ -46,7 +46,7 @@ public class ChatGPTController {
             question.setAnswer(chatGPTService.getAnswerFromChatGPT(question.getQuestion()));
         }catch (Exception e){
             System.out.println(e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Message : Unable to retrieve answer from the ChatGPT API ! try again");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Message : Unable to retrieve answer from the ChatGPT API | Dev Message: 401 Unauthorized verify the token in application.properties ");
         }
 
         // Store the Question and answer in the CSV file
